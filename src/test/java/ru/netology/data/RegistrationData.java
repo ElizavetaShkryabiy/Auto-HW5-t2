@@ -60,7 +60,7 @@ public class RegistrationData {
 
         public static UserInfo getRegisteredUser(String status) {
             UserInfo registeredUser = Registration.getUser(status);
-            new RegistrationData().sendRequest(registeredUser);
+            sendRequest(registeredUser);
             return registeredUser;
         }
 
@@ -73,7 +73,7 @@ public class RegistrationData {
         String status;
     }
 
-    
+
 
 
 }
