@@ -16,7 +16,7 @@ public class RegistrationData {
     public RegistrationData() {
     }
 
-    private static final RequestSpecification requestSpec = new RequestSpecBuilder()
+    public static final RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("http://localhost")
             .setPort(9999)
             .setAccept(ContentType.JSON)
@@ -73,27 +73,7 @@ public class RegistrationData {
         String status;
     }
 
-    @Test
-    void shouldGenerateNewActiveUserWithHardcodedData() {
-        given()
-                .spec(requestSpec)
-                .body(new UserInfo("Vasya", "12345", "active")) // передаём в теле объект, который будет преобразован в JSON
-                .when()
-                .post("/api/system/users") // на какой путь, относительно BaseUri отправляем запрос
-                .then()
-                .statusCode(200);
-    }
-
-    @Test
-    void shouldGenerateNewBlockedUserWithHardcodedData() {
-        given()
-                .spec(requestSpec)
-                .body(new UserInfo("Katya", "12345", "blocked")) // передаём в теле объект, который будет преобразован в JSON
-                .when()
-                .post("/api/system/users") // на какой путь, относительно BaseUri отправляем запрос
-                .then()
-                .statusCode(200);
-    }
+    
 
 
 }
